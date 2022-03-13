@@ -22,26 +22,33 @@
                 <v-tooltip bottom>
                 </v-tooltip>
               </v-toolbar>
-
               <v-card-text>
+
                 <v-form>
+                  <!-- text field login -->
                   <v-text-field
                     label="Login"
                     name="login"
                     type="text"
+                    v-model="email"
                   ></v-text-field>
 
+                  <!-- text field password -->
                   <v-text-field
                     label="Password"
                     name="password"
                     type="password"
+                    v-model="password"
                   ></v-text-field>
                 </v-form>
+
               </v-card-text>
 
               <v-card-actions>
                 <div class="flex-grow-1"></div>
-                <v-btn color="primary">Login</v-btn>
+                <v-btn color="primary"
+                @click="validateLogin"
+                >Login</v-btn>
                 <v-btn
                   color="error"
                   @click="resetForm"
@@ -49,6 +56,7 @@
                   Reset Form
                 </v-btn>
               </v-card-actions>
+
             </v-card>
           </v-col>
         </v-row>
@@ -56,22 +64,41 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        email: '',
-        password: ''
-      }
+import { mapActions } from 'vuex'
+import SweetAlert from '@/services/SweetAlert'
+
+export default {
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    ...mapActions(['loginAction']),
+    // will reset the email and password
+    resetForm () {
+      this.email = ''
+      this.password = ''
     },
-    methods: {
-      // will reset the email and password
-      resetForm () {
-        this.email = ''
-        this.password = ''
-      },
-      // will call the API and return the result
-      validateLogin () {
+    // will call the API and return the result
+    validateLogin () {
+      const userDetails = {
+        email: this.email,
+        password: this.password
       }
+      this.loginAction(userDetails)
+        .then(() => {
+          this.$router.push('/')
+          this.resetForm()
+          SweetAlert.successfulLogin()
+        })
+        .catch(() => {
+          this.$router.push('/login')
+          this.resetForm()
+          SweetAlert.failureLogin()
+        })
     }
   }
+}
 </script>

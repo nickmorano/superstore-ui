@@ -1,14 +1,17 @@
 <template>
   <div>
-    <h3>welcome {{this.userName}}</h3>
+    <h3>Regions</h3>
+    <div>{{regions}}</div>
   </div>
+
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+
 export default {
   computed: {
-    ...mapGetters(['userName'])
-  }
+    ...mapGetters(['regions']),
+  },
 }
 </script>
