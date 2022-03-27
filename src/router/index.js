@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
-import Region from '@/views/Region.vue'
+import User from '@/views/User.vue'
 
 Vue.use(VueRouter)
 
@@ -16,8 +16,8 @@ const routes = [
     component: Login
   },
   {
-    path: '/Regions',
-    component: Region
+    path: '/Users',
+    component: User
   }
 ]
 

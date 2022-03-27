@@ -6,8 +6,8 @@ export default {
     const response = await axios.post('login', userDetails)
     return response.data
   },
-  async regions () {
-    const response = await axios.get('api/regions')
+  async users () {
+    const response = await axios.get('http://localhost:3000/users')
     return response.data
   }
 }

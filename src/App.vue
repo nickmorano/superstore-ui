@@ -1,14 +1,13 @@
 <template>
   <v-app>
-    <v-content>
+    <v-main>
       <NavBar />
       <router-view />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import NavBar from '@/components/NavBar'
 
 export default {
@@ -17,21 +16,5 @@ export default {
   components: {
     NavBar
   },
-
-  computed: {
-    ...mapGetters(['isLoggedIn'])
-  },
-
-  data: () => ({
-    //
-  }),
-
-  created () {
-    // if (this.isLoggedIn) {
-    //   this.$router.push('/')
-    // } else {
-    //   this.$router.push('/login')
-    // }
-  }
 };
 </script>
