@@ -1,8 +1,8 @@
 <template>
   <div>
     <h3>Users</h3>
-    <div id= button> 
-      <p>Counter: {{allUsers}}</p>
+    <div> 
+      <p>{{allUsers}}</p>
     </div>
   </div>
 </template>
