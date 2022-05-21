@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import User from '@/views/User.vue'
-import Product from '@/views/Products.vue'
+import Products from '@/views/Products.vue'
+import AddProduct from '@/views/AddProduct.vue'
 
 Vue.use(VueRouter)
 
@@ -22,7 +23,11 @@ const routes = [
   },
   {
     path: '/Products',
-    component: Product
+    component: Products
+  },
+  {
+    path: '/AddProduct',
+    component: AddProduct
   },
 ]
 

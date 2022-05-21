@@ -9,6 +9,8 @@
 
       <v-toolbar-items>
         <v-btn text @click="redirectToUsers">Users</v-btn>
+        <v-btn text @click="redirectToProducts">Products</v-btn>
+        <v-btn text @click="redirectToAddProduct">Add Product</v-btn>
         <v-btn text @click="redirectToLogin">Login</v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -26,9 +28,14 @@ export default {
     redirectToHome () {
       this.$router.push('/')
     },
-
     redirectToUsers () {
       this.$router.push('/users')
+    },
+    redirectToProducts () {
+      this.$router.push('/products')
+    },
+    redirectToAddProduct () {
+      this.$router.push('/addProduct')
     },
     redirectToLogin () {
       this.$router.push('/login')
